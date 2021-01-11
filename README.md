@@ -1,31 +1,37 @@
-# StudiCase
+# StudiKasus
 
-Aplikasi Promos keranjang/kasir sederhana yang juga merupakan modifikasi aplikasi di repo sebelumnya yang juga merupakan bahan untuk UTS saya, dan sekarang memperbaiki dengan menambahkan beberapa fitur baru
+Program Aplikasi Promos ini adalah pengembangan dari aplikasi sebelumnya dengan menambahkan fitur baru
 
 # Kegunaan
-- User dapat memilih, serta menghapus item pada keranjang
-- User dapat memilih voucher untuk pemotongan harga
+- User dapat melihat daftar makanan yang ditawarkan
+- User dapat memasukkan atau menghapus makanan pilihan ke dalam keranjang
+- User dapat melihat subtotal makanan yang terdapat pada keranjang
+- User dapat melihat daftar voucher yang ditawarkan
+- User dapat menggunakan salah satu voucher
+- User dapat melihat harga total termasuk potongannya
 
-# Algoritma
- User pertama kali akan ditampilkan halaman mainwindow yang berisikan keranjang, serta subtotal dan total harga. Serta opsi untuk memilih voucher yang tersedia.
- kemudian user akan memilih item pada halaman penawaran yang kemudian item tersebut akan masuk ke dalam keranjang (user dapat menghapus item jika ada kesalahan)
- Lanjut dengan pemilihan voucher sebagai akhir dari alur aplikasi serta penggunaannya untuk pemotongan harga pada total.
+# Alur Program
+ User akan dihadapkan dengan tampilan dari MainWindow dengan isi subtotal, total harga, voucher, dan keranjang belanja. Disediakan pilihan berbagai item dan user bisa langsung
+ mengklik maka item akan berada di keranjang belanja. Disediakan voucher bagi user yang bisa mengurangi total harga dari keranjang belanja. 
+ Berikut adalah potongan code untuk menampilkan list item
 
-
-        public MainWindow()
+        private void generateContentPenawaran()
         {
-            InitializeComponent();
+            Item coffeLate = new Item("Coffe Late", 30000);
+            Item blackTea = new Item("BlackTea", 20000);
+            Item pizza = new Item("Pizza", 75000);
+            Item milkShake = new Item("Milk Shake", 15000);
+            Item friedRice = new Item("Fried Rice Special", 45000);
+            Item watermelonJuice = new Item("Watermelon Juice", 25000);
+            Item lemonSquash = new Item("Lemon Squash", 30000);
 
-            payment = new Payment(this);
+            Penawarancontroller.addItem(coffeLate);
+            Penawarancontroller.addItem(blackTea);
+            Penawarancontroller.addItem(pizza);
+            Penawarancontroller.addItem(milkShake);
+            Penawarancontroller.addItem(friedRice);
+            Penawarancontroller.addItem(watermelonJuice);
+            Penawarancontroller.addItem(lemonSquash);
 
-            KeranjangBelanja keranjangBelanja = new KeranjangBelanja(payment, this);
-
-            controller = new MainWindowController(keranjangBelanja);
-
-            listBoxPesanan.ItemsSource = controller.getSelectedItems();
-            listBoxPakaiVoucher.ItemsSource = controller.getSelectedVouchers();
-
-            initializeView();
-
-
-Disini kurang lebih baris-baris yang akan mempengaruhi jala
+            listPenawaran.Items.Refresh();
+        }
