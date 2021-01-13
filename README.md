@@ -1,4 +1,4 @@
-# StudiKasus
+# StudiKasus Nazil Alifurohman E.R. 19.11.2755
 
 Program Aplikasi Promos ini adalah pengembangan dari aplikasi sebelumnya dengan menambahkan fitur baru
 
